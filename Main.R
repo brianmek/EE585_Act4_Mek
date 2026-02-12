@@ -1,7 +1,6 @@
 if (!require("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-devtools::install_github("username/rMR")  # Replace with actual repo
 
 ### Aquatic Forecast Workflow ###
 # devtools::install_github("eco4cast/neon4cast")
