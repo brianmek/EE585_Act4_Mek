@@ -1,3 +1,10 @@
+# Install if not already installed
+if (!require("rMR", quietly = TRUE)) {
+  install.packages("rMR")
+}
+
+library(rMR)
+
 ### Aquatic Forecast Workflow ###
 # devtools::install_github("eco4cast/neon4cast")
 library(tidyverse)
