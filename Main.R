@@ -1,9 +1,9 @@
 ### Aquatic Forecast Workflow ###
-# devtools::install_github("eco4cast/neon4cast")
+devtools::install_github("eco4cast/neon4cast")
 library(tidyverse)
 library(neon4cast)
 library(lubridate)
-#devtools::install_version("rMR", version = "1.1.0")
+devtools::install_version("rMR", version = "1.1.0")
 library(rMR)
 
 forecast_date <- Sys.Date()
