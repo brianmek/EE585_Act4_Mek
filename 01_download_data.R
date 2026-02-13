@@ -24,8 +24,8 @@ merge_met_past <- function(target){
   sites <- unique(target$site_id)
   
   ## temporary hack to remove a site that's mid-behaving
-  #  sites = sites[!(sites=="POSE")] 
-  #  target = target |> filter(site_id %in% sites)  
+  sites = sites[!(sites=="POSE")] 
+  target = target |> filter(site_id %in% sites)  
   
   ## grab air temperature from the historical forecast
   noaa_past <- df_past |> 
