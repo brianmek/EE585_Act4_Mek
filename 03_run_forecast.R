@@ -57,4 +57,3 @@ run_forecast <- function(model,met_forecast,site_data){
   
   return(forecast)
 }
-```
