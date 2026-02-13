@@ -1,3 +1,10 @@
+if (!require("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+
+# This reads the GITHUB_PAT set by the workflow
+Sys.setenv(GITHUB_PAT = Sys.getenv("GITHUB_PAT"))
+
 ### Aquatic Forecast Workflow ###
 devtools::install_github("eco4cast/neon4cast")
 library(tidyverse)
