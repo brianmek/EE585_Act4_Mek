@@ -13,8 +13,8 @@ library(lubridate)
 devtools::install_version("rMR", version = "1.1.0")
 library(rMR)
 
-forecast_date <- Sys.Date()
-noaa_date <- Sys.Date() - days(2)  #Need to use yesterday's NOAA forecast because today's is not available yet
+forecast_date <- as.Date(Sys.time(), tz="UTC") - 1
+noaa_date <- Sys.Date() - days(1)  #Need to use yesterday's NOAA forecast because today's is not available yet
 
 #Step 0: Define team name and team members 
 team_info <- list(team_name = "air2waterSat_MCD",
@@ -45,7 +45,7 @@ ggplot(target, aes(x = temperature, y = air_temperature)) +
 met_future %>% 
   ggplot(aes(x = datetime, y = air_temperature, group = parameter)) +
   geom_line() +
-  facet_grid(~site_id, scale ="free")
+  facet_wrap(vars(site_id), scales = "free", ncol = 8)
 
 ### Step 2: Calibrate forecast model
 model <- calibrate_forecast(target)
@@ -57,7 +57,7 @@ forecast <- run_forecast(model,met_future,site_data)
 forecast %>% 
   ggplot(aes(x = datetime, y = prediction, group = parameter)) +
   geom_line() +
-  facet_grid(variable~site_id, scale ="free")
+  facet_wrap(vars(variable, site_id), scales = "free", ncol = 8)
 
 ### Step 4: Save and submit forecast and metadata
 submit_forecast(forecast,team_info,submit=FALSE)
