@@ -14,7 +14,7 @@ devtools::install_version("rMR", version = "1.1.0")
 library(rMR)
 
 forecast_date <- Sys.Date()
-noaa_date <- Sys.Date() - days(1)  #Need to use yesterday's NOAA forecast because today's is not available yet
+noaa_date <- Sys.Date() - days(2)  #Need to use yesterday's NOAA forecast because today's is not available yet
 
 #Step 0: Define team name and team members 
 team_info <- list(team_name = "air2waterSat_MCD",
